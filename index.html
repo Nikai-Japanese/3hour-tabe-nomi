@@ -55,9 +55,7 @@
         );
 
       color: #fff;
-
       padding: 25px 20px 50px;
-
       text-align: center;
     }
 
@@ -94,9 +92,7 @@
       margin: 0 auto;
 
       background: #fff;
-
       border-radius: 16px;
-
       padding: 20px;
 
       color: #222;
@@ -108,9 +104,7 @@
     .search-title {
       font-size: 16px;
       font-weight: 700;
-
       margin-bottom: 12px;
-
       text-align: left;
     }
 
@@ -119,30 +113,62 @@
       gap: 10px;
     }
 
-    .search-row select {
+
+    /* =========================
+       プルダウン
+    ========================= */
+
+    .select-wrapper {
+      position: relative;
       flex: 1;
       min-width: 0;
+    }
 
-      padding: 14px;
+    .select-wrapper select {
+      width: 100%;
+
+      padding: 14px 50px 14px 14px;
 
       border: 1px solid #ddd;
-
       border-radius: 10px;
 
       background: #fff;
 
       font-size: 15px;
+
+      appearance: none;
+      -webkit-appearance: none;
+
+      cursor: pointer;
     }
+
+    .select-arrow {
+      position: absolute;
+
+      right: 25px;
+      top: 50%;
+
+      transform: translateY(-55%);
+
+      font-size: 20px;
+
+      color: #555;
+
+      pointer-events: none;
+    }
+
+
+    /* =========================
+       検索ボタン
+    ========================= */
 
     .search-button {
       border: none;
-
       border-radius: 10px;
 
       padding: 14px 24px;
 
       background: #ffcc33;
-
       color: #111;
 
       font-weight: 800;
@@ -186,25 +212,19 @@
 
     .results-title {
       font-size: 24px;
-
       font-weight: 800;
-
       margin-bottom: 5px;
     }
 
     .results-subtitle {
       color: #666;
-
       font-size: 14px;
-
       margin-bottom: 20px;
     }
 
     .shop-count {
       margin-bottom: 15px;
-
       color: #666;
-
       font-size: 14px;
     }
 
@@ -240,17 +260,13 @@
 
     .shop-name {
       font-size: 24px;
-
       font-weight: 800;
-
       color: #e67e22;
-
       margin-bottom: 5px;
     }
 
     .shop-location {
       color: #777;
-
       font-size: 14px;
     }
 
@@ -265,13 +281,11 @@
 
     .period-title {
       font-size: 17px;
-
       font-weight: 800;
 
       padding: 10px 12px;
 
       background: #111;
-
       color: #fff;
 
       border-radius: 9px 9px 0 0;
@@ -294,7 +308,6 @@
 
     .period-item {
       background: #fafafa;
-
       padding: 13px 14px;
     }
 
@@ -310,7 +323,6 @@
 
     .period-value {
       font-size: 15px;
-
       font-weight: 800;
     }
 
@@ -368,15 +380,12 @@
 
     .detail-label {
       color: #777;
-
       margin-right: 6px;
     }
 
 
     /* =========================
        店舗フッター
-       左：公式サイト
-       右：最終確認日
     ========================= */
 
     .shop-footer {
@@ -395,7 +404,6 @@
       display: inline-block;
 
       background: #111;
-
       color: #fff;
 
       text-decoration: none;
@@ -405,7 +413,6 @@
       padding: 11px 18px;
 
       font-size: 14px;
-
       font-weight: 700;
     }
 
@@ -459,7 +466,6 @@
 
     .section-title {
       font-size: 28px;
-
       font-weight: 800;
 
       margin-bottom: 10px;
@@ -467,7 +473,6 @@
 
     .section-description {
       color: #666;
-
       margin-bottom: 30px;
     }
 
@@ -500,19 +505,16 @@
 
     .condition-number {
       font-size: 34px;
-
       font-weight: 800;
     }
 
     .condition-unit {
       font-size: 14px;
-
       color: #777;
     }
 
     .condition-title {
       margin-top: 10px;
-
       font-weight: 700;
     }
 
@@ -584,19 +586,16 @@
 
     .feature-icon {
       font-size: 32px;
-
       margin-bottom: 15px;
     }
 
     .feature-card h3 {
       margin-bottom: 10px;
-
       font-size: 18px;
     }
 
     .feature-card p {
       color: #666;
-
       font-size: 14px;
     }
 
@@ -744,7 +743,6 @@
 
       .official-link {
         padding: 10px 13px;
-
         font-size: 13px;
       }
 
@@ -794,23 +792,31 @@
 
         <div class="search-row">
 
-          <select
-            id="citySelect"
-            onchange="searchShops()">
+          <div class="select-wrapper">
 
-            <option value="">
-              都市を選択
-            </option>
+            <select
+              id="citySelect"
+              onchange="searchShops()">
 
-            <option value="大阪">
-              大阪
-            </option>
+              <option value="">
+                都市を選択
+              </option>
 
-            <option value="福岡">
-              福岡
-            </option>
+              <option value="大阪">
+                大阪
+              </option>
 
-          </select>
+              <option value="福岡">
+                福岡
+              </option>
+
+            </select>
+
+            <span class="select-arrow">
+              ⌄
+            </span>
+
+          </div>
 
 
           <button
@@ -1227,8 +1233,7 @@
 
         priceNote: "",
 
-        lastConfirmed:
-          "2026年8月12日"
+        lastConfirmed: "2026年8月12日"
       },
 
 
@@ -1281,8 +1286,7 @@
         priceNote:
           "時間無制限の食べ飲み放題。金・土・祝前日も時間短縮なし。",
 
-        lastConfirmed:
-          "2026年8月13日"
+        lastConfirmed: "2026年8月13日"
       },
 
 
@@ -1331,8 +1335,7 @@
         priceNote:
           "時間無制限の食べ飲み放題。金・土・祝前日も時間短縮なし。",
 
-        lastConfirmed:
-          "2026年8月13日"
+        lastConfirmed: "2026年8月13日"
       },
 
 
@@ -1381,8 +1384,7 @@
         priceNote:
           "時間無制限の食べ飲み放題。",
 
-        lastConfirmed:
-          "2026年8月13日"
+        lastConfirmed: "2026年8月13日"
       }
 
     ];
@@ -1399,7 +1401,6 @@
           .getElementById("citySelect")
           .value;
 
-
       if (!city) {
 
         document
@@ -1408,7 +1409,6 @@
 
         return;
       }
-
 
       showCity(city);
     }
@@ -1424,9 +1424,7 @@
         .getElementById("citySelect")
         .value = city;
 
-
       showCity(city);
-
 
       setTimeout(() => {
 
@@ -1587,20 +1585,13 @@
         document.getElementById("shop-count");
 
 
-      selectedCity.textContent =
-        city;
+      selectedCity.textContent = city;
 
-
-      shopArea.style.display =
-        "block";
+      shopArea.style.display = "block";
 
 
       const results =
-        shops.filter(shop => {
-
-          return shop.city === city;
-
-        });
+        shops.filter(shop => shop.city === city);
 
 
       shopCount.textContent =
@@ -1648,7 +1639,6 @@
         const card =
           document.createElement("div");
 
-
         card.className =
           "shop-card";
 
@@ -1660,7 +1650,6 @@
             <div class="shop-name">
               ${shop.name}
             </div>
-
 
             <div class="shop-location">
               ${shop.prefecture}
@@ -1697,11 +1686,11 @@
               </span>
 
               <strong
-                class="
-                  ${shop.unlimited
+                class="${
+                  shop.unlimited
                     ? "unlimited-value"
-                    : ""}
-                ">
+                    : ""
+                }">
 
                 ${shop.unlimited ? "あり" : "なし"}
 

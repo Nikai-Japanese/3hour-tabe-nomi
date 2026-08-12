@@ -241,7 +241,6 @@
 
     .shop-list {
       display: grid;
-
       gap: 18px;
     }
 
@@ -307,7 +306,7 @@
 
 
     /* =========================
-       料金・時間
+       期間別情報
     ========================= */
 
     .period-block {
@@ -423,6 +422,24 @@
       margin-right: 6px;
     }
 
+
+    /* =========================
+       店舗フッター
+       公式サイト左・最終確認右
+    ========================= */
+
+    .shop-footer {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-top: 5px;
+    }
+
     .official-link {
       display: inline-block;
 
@@ -450,7 +467,11 @@
 
       font-size: 12px;
 
-      margin-top: 12px;
+      margin-top: 0;
+
+      text-align: right;
+
+      white-space: nowrap;
     }
 
 
@@ -715,6 +736,22 @@
         grid-template-columns: 1fr;
       }
 
+      .shop-footer {
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 10px;
+      }
+
+      .last-confirmed {
+        text-align: right;
+
+        font-size: 11px;
+      }
+
       main {
         padding: 45px 16px;
       }
@@ -756,6 +793,20 @@
 
       .condition-number {
         font-size: 28px;
+      }
+
+      .shop-footer {
+        gap: 8px;
+      }
+
+      .official-link {
+        padding: 10px 13px;
+
+        font-size: 13px;
+      }
+
+      .last-confirmed {
+        font-size: 10px;
       }
 
     }
@@ -1236,8 +1287,7 @@
 
         unlimited: false,
 
-        priceNote:
-          "",
+        priceNote: "",
 
         lastConfirmed:
           "2026年8月12日"
@@ -1671,11 +1721,8 @@
 
             <div>
 
-              <div
-                class="shop-name">
-
+              <div class="shop-name">
                 ${shop.name}
-
               </div>
 
 
@@ -1706,13 +1753,9 @@
           ${
             shop.priceNote
               ? `
-
                 <div class="price-note">
-
                   ${shop.priceNote}
-
                 </div>
-
               `
               : ""
           }
@@ -1755,27 +1798,27 @@
           </div>
 
 
-         <div class="shop-footer">
+          <div class="shop-footer">
 
-  <a
-    class="official-link"
-    href="${shop.officialUrl}"
-    target="_blank"
-    rel="noopener noreferrer">
+            <a
+              class="official-link"
+              href="${shop.officialUrl}"
+              target="_blank"
+              rel="noopener noreferrer">
 
-    公式サイトを見る
+              公式サイトを見る
 
-  </a>
+            </a>
 
 
-  <div class="last-confirmed">
+            <div class="last-confirmed">
 
-    最終確認日：
-    ${shop.lastConfirmed}
+              最終確認日：
+              ${shop.lastConfirmed}
 
-  </div>
+            </div>
 
-</div>
+          </div>
 
         `;
 

@@ -5,9 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>3時間以上 食べ飲み放題</title>
-  <meta name="description" content="3時間以上の食べ放題・飲み放題が楽しめるお店を探せるサイト">
+
+  <meta
+    name="description"
+    content="3時間以上の食べ放題・飲み放題だけを掲載する専門サイト"
+  >
 
   <style>
+
+    /* =========================
+       基本設定
+    ========================= */
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -22,10 +31,16 @@
         "Yu Gothic",
         "Meiryo",
         sans-serif;
+
       background: #f7f7f7;
       color: #222;
       line-height: 1.6;
     }
+
+    a {
+      color: inherit;
+    }
+
 
     /* =========================
        ヘッダー
@@ -48,7 +63,7 @@
 
     .logo {
       font-size: 20px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.03em;
     }
 
@@ -56,19 +71,23 @@
       color: #ffcc33;
     }
 
+
     /* =========================
        ヒーロー
     ========================= */
 
     .hero {
-      background: linear-gradient(
-        135deg,
-        #111 0%,
-        #292929 100%
-      );
+      background:
+        linear-gradient(
+          135deg,
+          #111 0%,
+          #292929 100%
+        );
 
       color: #fff;
+
       padding: 70px 20px 80px;
+
       text-align: center;
     }
 
@@ -79,19 +98,27 @@
 
     .hero-badge {
       display: inline-block;
+
       background: #ffcc33;
       color: #111;
+
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
+
       padding: 6px 14px;
+
       border-radius: 999px;
+
       margin-bottom: 20px;
     }
 
     .hero h1 {
       font-size: clamp(32px, 7vw, 64px);
+
       line-height: 1.2;
+
       margin-bottom: 20px;
+
       font-weight: 800;
     }
 
@@ -101,55 +128,84 @@
 
     .hero-text {
       font-size: 17px;
+
       color: #ddd;
+
       max-width: 650px;
+
       margin: 0 auto 35px;
     }
 
+
     /* =========================
-       検索エリア
+       検索ボックス
     ========================= */
 
     .search-box {
       max-width: 760px;
+
       margin: 0 auto;
+
       background: #fff;
+
       border-radius: 16px;
+
       padding: 20px;
+
       color: #222;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
     }
 
     .search-title {
       font-size: 16px;
+
       font-weight: 700;
+
       margin-bottom: 12px;
+
       text-align: left;
     }
 
     .search-row {
       display: flex;
+
       gap: 10px;
     }
 
     .search-row select {
       flex: 1;
+
       min-width: 0;
+
       padding: 14px;
-      border: 1px solid #ddd;
+
+      border:
+        1px solid #ddd;
+
       border-radius: 10px;
+
       background: #fff;
+
       font-size: 15px;
     }
 
     .search-button {
       border: none;
+
       border-radius: 10px;
+
       padding: 14px 24px;
+
       background: #ffcc33;
+
       color: #111;
-      font-weight: 700;
+
+      font-weight: 800;
+
       cursor: pointer;
+
       font-size: 15px;
     }
 
@@ -157,13 +213,16 @@
       opacity: 0.85;
     }
 
+
     /* =========================
        メイン
     ========================= */
 
     main {
       max-width: 1100px;
+
       margin: 0 auto;
+
       padding: 60px 20px;
     }
 
@@ -173,14 +232,18 @@
 
     .section-title {
       font-size: 28px;
+
       font-weight: 800;
+
       margin-bottom: 10px;
     }
 
     .section-description {
       color: #666;
+
       margin-bottom: 30px;
     }
+
 
     /* =========================
        条件カード
@@ -188,33 +251,44 @@
 
     .conditions {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
       gap: 16px;
     }
 
     .condition-card {
       background: #fff;
+
       border-radius: 14px;
+
       padding: 24px 18px;
+
       text-align: center;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+
+      box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.06);
     }
 
     .condition-number {
       font-size: 34px;
+
       font-weight: 800;
-      color: #111;
     }
 
     .condition-unit {
       font-size: 14px;
+
       color: #777;
     }
 
     .condition-title {
       margin-top: 10px;
+
       font-weight: 700;
     }
+
 
     /* =========================
        都市カード
@@ -222,86 +296,342 @@
 
     .cities {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
       gap: 14px;
     }
 
     .city-card {
       background: #fff;
-      border: 1px solid #eee;
+
+      border:
+        1px solid #eee;
+
       border-radius: 12px;
+
       padding: 20px 10px;
+
       text-align: center;
+
       font-weight: 700;
+
       cursor: pointer;
+
       transition: 0.2s;
     }
 
     .city-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+      box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.08);
     }
 
+
     /* =========================
-       店舗表示エリア
+       店舗エリア
     ========================= */
 
     #shop-area {
       display: none;
     }
 
-    .shop-message {
+    .shop-count {
+      margin-bottom: 20px;
+
+      color: #666;
+
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       店舗カード
+    ========================= */
+
+    .shop-list {
+      display: grid;
+
+      gap: 20px;
+    }
+
+    .shop-card {
       background: #fff;
+
+      border-radius: 16px;
+
+      padding: 25px;
+
+      box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.07);
+    }
+
+    .shop-header {
+      display: flex;
+
+      align-items: flex-start;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 20px;
+    }
+
+    .shop-name {
+      font-size: 23px;
+
+      font-weight: 800;
+
+      margin-bottom: 5px;
+    }
+
+    .shop-location {
+      color: #777;
+
+      font-size: 14px;
+    }
+
+    .verified-badge {
+      flex-shrink: 0;
+
+      background: #e9f7ef;
+
+      color: #187a43;
+
+      border-radius: 999px;
+
+      padding: 6px 10px;
+
+      font-size: 12px;
+
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       店舗条件
+    ========================= */
+
+    .shop-conditions {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 10px;
+
+      margin-bottom: 20px;
+    }
+
+    .shop-condition {
+      background: #f7f7f7;
+
+      border-radius: 10px;
+
+      padding: 13px 15px;
+    }
+
+    .shop-condition-label {
+      display: block;
+
+      color: #777;
+
+      font-size: 12px;
+
+      margin-bottom: 3px;
+    }
+
+    .shop-condition-value {
+      font-size: 16px;
+
+      font-weight: 800;
+    }
+
+
+    /* =========================
+       曜日条件
+    ========================= */
+
+    .weekday-title {
+      font-weight: 800;
+
+      margin-bottom: 10px;
+    }
+
+    .weekday-list {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 8px;
+
+      margin-bottom: 20px;
+    }
+
+    .weekday-item {
+      background: #fafafa;
+
+      border:
+        1px solid #eee;
+
+      border-radius: 8px;
+
+      padding: 9px;
+
+      font-size: 13px;
+    }
+
+    .weekday-item strong {
+      display: block;
+
+      margin-bottom: 2px;
+    }
+
+
+    /* =========================
+       店舗詳細
+    ========================= */
+
+    .shop-details {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 10px;
+
+      padding-top: 18px;
+
+      border-top:
+        1px solid #eee;
+
+      margin-bottom: 20px;
+    }
+
+    .detail-item {
+      font-size: 14px;
+    }
+
+    .detail-label {
+      color: #777;
+
+      margin-right: 6px;
+    }
+
+    .official-link {
+      display: inline-block;
+
+      background: #111;
+
+      color: #fff;
+
+      text-decoration: none;
+
+      border-radius: 9px;
+
+      padding: 11px 18px;
+
+      font-size: 14px;
+
+      font-weight: 700;
+    }
+
+    .official-link:hover {
+      opacity: 0.8;
+    }
+
+    .last-confirmed {
+      color: #888;
+
+      font-size: 12px;
+
+      margin-top: 12px;
+    }
+
+
+    /* =========================
+       店舗なし
+    ========================= */
+
+    .no-shops {
+      background: #fff;
+
       border-radius: 14px;
-      padding: 35px 20px;
+
+      padding: 40px 20px;
+
       text-align: center;
+
       color: #666;
     }
 
+
     /* =========================
-       サイトの特徴
+       特徴
     ========================= */
 
     .features {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 20px;
     }
 
     .feature-card {
       background: #fff;
+
       border-radius: 14px;
+
       padding: 30px 22px;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+
+      box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.06);
     }
 
     .feature-icon {
       font-size: 32px;
+
       margin-bottom: 15px;
     }
 
     .feature-card h3 {
       margin-bottom: 10px;
+
       font-size: 18px;
     }
 
     .feature-card p {
       color: #666;
+
       font-size: 14px;
     }
 
+
     /* =========================
-       注意書き
+       掲載基準
     ========================= */
 
     .notice {
       background: #fff;
-      border-left: 5px solid #ffcc33;
+
+      border-left:
+        5px solid #ffcc33;
+
       padding: 22px;
+
       border-radius: 8px;
+
       color: #555;
+
       font-size: 14px;
     }
+
 
     /* =========================
        フッター
@@ -309,11 +639,16 @@
 
     footer {
       background: #111;
+
       color: #aaa;
+
       text-align: center;
+
       padding: 30px 20px;
+
       font-size: 13px;
     }
+
 
     /* =========================
        スマートフォン
@@ -346,26 +681,49 @@
       }
 
       .conditions {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(2, 1fr);
       }
 
       .cities {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(2, 1fr);
       }
 
       .features {
         grid-template-columns: 1fr;
       }
 
+      .shop-header {
+        flex-direction: column;
+      }
+
+      .shop-conditions {
+        grid-template-columns: 1fr;
+      }
+
+      .weekday-list {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .shop-details {
+        grid-template-columns: 1fr;
+      }
+
       .section-title {
         font-size: 24px;
       }
+
     }
+
 
     @media (max-width: 400px) {
 
       .conditions {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+          repeat(2, 1fr);
+
         gap: 10px;
       }
 
@@ -376,24 +734,32 @@
       .condition-number {
         font-size: 28px;
       }
+
     }
 
   </style>
 </head>
 
+
 <body>
+
 
   <!-- =========================
        ヘッダー
   ========================== -->
 
   <header>
+
     <div class="header-inner">
+
       <div class="logo">
         <span>3H</span> 食べ飲み放題
       </div>
+
     </div>
+
   </header>
+
 
 
   <!-- =========================
@@ -408,15 +774,18 @@
         3時間以上だけ
       </div>
 
+
       <h1>
         3時間以上の<br>
         <span>食べ飲み放題</span>を探す
       </h1>
 
+
       <p class="hero-text">
         「短い食べ放題・飲み放題はいらない」<br>
         そんな人のための、3時間以上にこだわった検索サイトです。
       </p>
+
 
 
       <!-- 検索 -->
@@ -427,26 +796,64 @@
           行きたいエリアを選んでください
         </div>
 
+
         <div class="search-row">
 
           <select id="citySelect">
-            <option value="">都市を選択</option>
-            <option value="東京">東京</option>
-            <option value="大阪">大阪</option>
-            <option value="名古屋">名古屋</option>
-            <option value="福岡">福岡</option>
-            <option value="札幌">札幌</option>
-            <option value="横浜">横浜</option>
-            <option value="神戸">神戸</option>
-            <option value="京都">京都</option>
-            <option value="広島">広島</option>
-            <option value="仙台">仙台</option>
+
+            <option value="">
+              都市を選択
+            </option>
+
+            <option value="東京">
+              東京
+            </option>
+
+            <option value="大阪">
+              大阪
+            </option>
+
+            <option value="名古屋">
+              名古屋
+            </option>
+
+            <option value="福岡">
+              福岡
+            </option>
+
+            <option value="札幌">
+              札幌
+            </option>
+
+            <option value="横浜">
+              横浜
+            </option>
+
+            <option value="神戸">
+              神戸
+            </option>
+
+            <option value="京都">
+              京都
+            </option>
+
+            <option value="広島">
+              広島
+            </option>
+
+            <option value="仙台">
+              仙台
+            </option>
+
           </select>
+
 
           <button
             class="search-button"
             onclick="searchShops()">
+
             お店を探す
+
           </button>
 
         </div>
@@ -458,6 +865,7 @@
   </section>
 
 
+
   <!-- =========================
        メイン
   ========================== -->
@@ -465,7 +873,9 @@
   <main>
 
 
-    <!-- 条件 -->
+    <!-- =========================
+         条件
+    ========================== -->
 
     <section class="section">
 
@@ -474,50 +884,93 @@
       </h2>
 
       <p class="section-description">
-        掲載するお店は、厳しい条件をクリアした店舗だけです。
+        掲載するお店は、厳しい条件をすべてクリアした店舗だけです。
       </p>
 
 
       <div class="conditions">
 
+
         <div class="condition-card">
-          <div class="condition-number">180</div>
-          <div class="condition-unit">分以上</div>
+
+          <div class="condition-number">
+            180
+          </div>
+
+          <div class="condition-unit">
+            分以上
+          </div>
+
           <div class="condition-title">
             食べ放題
           </div>
+
         </div>
 
+
+
         <div class="condition-card">
-          <div class="condition-number">180</div>
-          <div class="condition-unit">分以上</div>
+
+          <div class="condition-number">
+            180
+          </div>
+
+          <div class="condition-unit">
+            分以上
+          </div>
+
           <div class="condition-title">
             飲み放題
           </div>
+
         </div>
 
+
+
         <div class="condition-card">
-          <div class="condition-number">150</div>
-          <div class="condition-unit">分以上</div>
+
+          <div class="condition-number">
+            150
+          </div>
+
+          <div class="condition-unit">
+            分以上
+          </div>
+
           <div class="condition-title">
             飲み放題 L.O.
           </div>
+
         </div>
 
+
+
         <div class="condition-card">
-          <div class="condition-number">135</div>
-          <div class="condition-unit">分以上</div>
+
+          <div class="condition-number">
+            135
+          </div>
+
+          <div class="condition-unit">
+            分以上
+          </div>
+
           <div class="condition-title">
             食べ放題 L.O.
           </div>
+
         </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- 都市 -->
+
+    <!-- =========================
+         都市
+    ========================== -->
 
     <section class="section">
 
@@ -529,79 +982,143 @@
         現在は主要都市からスタート。順次全国へ拡大します。
       </p>
 
+
       <div class="cities">
 
-        <div class="city-card" onclick="selectCity('東京')">
+
+        <div
+          class="city-card"
+          onclick="selectCity('東京')">
+
           東京
+
         </div>
 
-        <div class="city-card" onclick="selectCity('大阪')">
+
+        <div
+          class="city-card"
+          onclick="selectCity('大阪')">
+
           大阪
+
         </div>
 
-        <div class="city-card" onclick="selectCity('名古屋')">
+
+        <div
+          class="city-card"
+          onclick="selectCity('名古屋')">
+
           名古屋
+
         </div>
 
-        <div class="city-card" onclick="selectCity('福岡')">
+
+        <div
+          class="city-card"
+          onclick="selectCity('福岡')">
+
           福岡
+
         </div>
 
-        <div class="city-card" onclick="selectCity('札幌')">
+
+        <div
+          class="city-card"
+          onclick="selectCity('札幌')">
+
           札幌
+
         </div>
 
-        <div class="city-card" onclick="selectCity('横浜')">
+
+        <div
+          class="city-card"
+          onclick="selectCity('横浜')">
+
           横浜
+
         </div>
 
-        <div class="city-card" onclick="selectCity('神戸')">
+
+        <div
+          class="city-card"
+          onclick="selectCity('神戸')">
+
           神戸
+
         </div>
 
-        <div class="city-card" onclick="selectCity('京都')">
+
+        <div
+          class="city-card"
+          onclick="selectCity('京都')">
+
           京都
+
         </div>
 
-        <div class="city-card" onclick="selectCity('広島')">
+
+        <div
+          class="city-card"
+          onclick="selectCity('広島')">
+
           広島
+
         </div>
 
-        <div class="city-card" onclick="selectCity('仙台')">
+
+        <div
+          class="city-card"
+          onclick="selectCity('仙台')">
+
           仙台
+
         </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- 店舗表示 -->
+
+    <!-- =========================
+         店舗表示
+    ========================== -->
 
     <section
       class="section"
       id="shop-area">
 
+
       <h2 class="section-title">
-        <span id="selected-city"></span>のお店
+
+        <span id="selected-city"></span>
+
+        の完全条件クリア店舗
+
       </h2>
 
-      <div class="shop-message">
 
-        <p>
-          現在、店舗情報を準備しています。
-        </p>
+      <p
+        class="shop-count"
+        id="shop-count">
+      </p>
 
-        <p style="margin-top: 8px;">
-          条件を満たしたお店だけを掲載します。
-        </p>
 
+      <div
+        class="shop-list"
+        id="shop-list">
       </div>
+
 
     </section>
 
 
-    <!-- 特徴 -->
+
+    <!-- =========================
+         特徴
+    ========================== -->
 
     <section class="section">
 
@@ -616,6 +1133,7 @@
 
       <div class="features">
 
+
         <div class="feature-card">
 
           <div class="feature-icon">
@@ -627,11 +1145,12 @@
           </h3>
 
           <p>
-            180分未満のプランは基本的に掲載対象にしません。
-            長時間楽しめるお店を探しやすくします。
+            180分未満の食べ放題・飲み放題は掲載しません。
+            長時間楽しめるお店だけを探せます。
           </p>
 
         </div>
+
 
 
         <div class="feature-card">
@@ -646,10 +1165,11 @@
 
           <p>
             食べ放題だけ、飲み放題だけではなく、
-            食べ飲み放題を中心に探せるサイトです。
+            3時間以上の食べ飲み放題を中心に掲載します。
           </p>
 
         </div>
+
 
 
         <div class="feature-card">
@@ -664,17 +1184,21 @@
 
           <p>
             食べ放題・飲み放題の時間だけでなく、
-            ラストオーダーや曜日条件なども確認します。
+            ラストオーダーや曜日条件まで確認します。
           </p>
 
         </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- 掲載基準 -->
+
+    <!-- =========================
+         掲載基準
+    ========================== -->
 
     <section class="section">
 
@@ -682,32 +1206,45 @@
         掲載基準
       </h2>
 
+
       <div class="notice">
 
         <p>
-          当サイトでは、長時間の食べ飲み放題を探している人のため、
-          掲載条件を設定しています。
+          当サイトは、
+          「3時間以上しか、載せません。」
+          を基本コンセプトとしています。
         </p>
 
         <br>
 
         <p>
-          食べ放題180分以上、飲み放題180分以上を基本とし、
-          ラストオーダーや金曜・土曜・祝前日などの条件も確認します。
+          食べ放題180分以上、
+          飲み放題180分以上を必須条件とし、
+          飲み放題L.O.150分以上、
+          食べ放題L.O.135分以上も確認します。
         </p>
 
         <br>
 
         <p>
-          今後、店舗情報を一件ずつ確認し、
-          条件を満たした店舗のみ掲載していきます。
+          金曜日・土曜日・祝前日などに
+          時間が短縮される店舗も掲載しません。
+        </p>
+
+        <br>
+
+        <p>
+          必要な条件を公式情報で確認できない店舗も
+          掲載対象外とします。
         </p>
 
       </div>
 
     </section>
 
+
   </main>
+
 
 
   <!-- =========================
@@ -727,52 +1264,449 @@
   </footer>
 
 
+
   <!-- =========================
        JavaScript
   ========================== -->
 
   <script>
 
+
+    /*
+    ==================================================
+    店舗データ
+
+    今後ここに店舗を追加していきます。
+
+    掲載するのは完全条件クリアの店舗だけ。
+    ==================================================
+    */
+
+
+    const shops = [
+
+      {
+        id: "osaka-kenzo-umeda",
+
+        name: "けんぞう 梅田店",
+
+        prefecture: "大阪府",
+
+        city: "大阪市",
+
+        area: "梅田",
+
+        officialUrl:
+          "https://izakayakenzo.owst.jp/",
+
+        eatingTime:
+          "180分",
+
+        drinkingTime:
+          "180分",
+
+        eatingLO:
+          "135分",
+
+        drinkingLO:
+          "150分",
+
+        price:
+          "3,300円（税込）",
+
+        friday:
+          "180分",
+
+        saturday:
+          "180分",
+
+        holidayEve:
+          "180分",
+
+        holiday:
+          "基本条件を満たす",
+
+        unlimited:
+          "なし",
+
+        lastConfirmed:
+          "2026年8月12日"
+
+      }
+
+    ];
+
+
+
+    /*
+    ==================================================
+    店舗検索
+    ==================================================
+    */
+
     function searchShops() {
 
       const city =
-        document.getElementById("citySelect").value;
+        document
+          .getElementById("citySelect")
+          .value;
+
 
       if (!city) {
 
         alert("都市を選択してください。");
 
         return;
+
       }
 
+
       showCity(city);
+
     }
 
 
+
+    /*
+    ==================================================
+    都市カードをクリックした場合
+    ==================================================
+    */
+
     function selectCity(city) {
 
-      document.getElementById("citySelect").value = city;
+      document
+        .getElementById("citySelect")
+        .value = city;
+
 
       showCity(city);
 
-      window.scrollTo({
-        top:
-          document.getElementById("shop-area").offsetTop - 20,
-        behavior: "smooth"
+
+      setTimeout(() => {
+
+        document
+          .getElementById("shop-area")
+          .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+      }, 100);
+
+    }
+
+
+
+    /*
+    ==================================================
+    店舗表示
+    ==================================================
+    */
+
+    function showCity(city) {
+
+      const shopArea =
+        document.getElementById("shop-area");
+
+      const selectedCity =
+        document.getElementById("selected-city");
+
+      const shopList =
+        document.getElementById("shop-list");
+
+      const shopCount =
+        document.getElementById("shop-count");
+
+
+      selectedCity.textContent =
+        city;
+
+
+      shopArea.style.display =
+        "block";
+
+
+      /*
+      大阪市の場合も
+      「大阪」で検索できるようにする
+      */
+
+      const results =
+        shops.filter(shop => {
+
+          return shop.city === city ||
+                 (
+                   city === "大阪" &&
+                   shop.prefecture === "大阪府"
+                 );
+
+        });
+
+
+      shopCount.textContent =
+        results.length +
+        "店舗が条件を満たしています。";
+
+
+      shopList.innerHTML = "";
+
+
+      /*
+      店舗がない場合
+      */
+
+      if (results.length === 0) {
+
+        shopList.innerHTML = `
+
+          <div class="no-shops">
+
+            <p>
+              現在、${city}で
+              完全条件を満たす店舗は
+              掲載していません。
+            </p>
+
+            <p style="margin-top:8px;">
+              条件を緩めて掲載することはありません。
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      /*
+      店舗カードを作成
+      */
+
+      results.forEach(shop => {
+
+        const card =
+          document.createElement("div");
+
+        card.className =
+          "shop-card";
+
+
+        card.innerHTML = `
+
+          <div class="shop-header">
+
+            <div>
+
+              <div class="shop-name">
+                ${shop.name}
+              </div>
+
+              <div class="shop-location">
+
+                ${shop.prefecture}
+                ${shop.city}
+                ${shop.area}
+
+              </div>
+
+            </div>
+
+
+            <div class="verified-badge">
+              条件確認済み
+            </div>
+
+          </div>
+
+
+
+          <div class="shop-conditions">
+
+
+            <div class="shop-condition">
+
+              <span class="shop-condition-label">
+                食べ放題
+              </span>
+
+              <span class="shop-condition-value">
+                ${shop.eatingTime}
+              </span>
+
+            </div>
+
+
+
+            <div class="shop-condition">
+
+              <span class="shop-condition-label">
+                飲み放題
+              </span>
+
+              <span class="shop-condition-value">
+                ${shop.drinkingTime}
+              </span>
+
+            </div>
+
+
+
+            <div class="shop-condition">
+
+              <span class="shop-condition-label">
+                食べ放題 L.O.
+              </span>
+
+              <span class="shop-condition-value">
+                ${shop.eatingLO}
+              </span>
+
+            </div>
+
+
+
+            <div class="shop-condition">
+
+              <span class="shop-condition-label">
+                飲み放題 L.O.
+              </span>
+
+              <span class="shop-condition-value">
+                ${shop.drinkingLO}
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+
+          <div class="weekday-title">
+            曜日・祝前日の時間
+          </div>
+
+
+          <div class="weekday-list">
+
+
+            <div class="weekday-item">
+
+              <strong>
+                金曜日
+              </strong>
+
+              ${shop.friday}
+
+            </div>
+
+
+
+            <div class="weekday-item">
+
+              <strong>
+                土曜日
+              </strong>
+
+              ${shop.saturday}
+
+            </div>
+
+
+
+            <div class="weekday-item">
+
+              <strong>
+                祝前日
+              </strong>
+
+              ${shop.holidayEve}
+
+            </div>
+
+
+
+            <div class="weekday-item">
+
+              <strong>
+                祝日
+              </strong>
+
+              ${shop.holiday}
+
+            </div>
+
+
+
+          </div>
+
+
+
+          <div class="shop-details">
+
+
+            <div class="detail-item">
+
+              <span class="detail-label">
+                料金
+              </span>
+
+              <strong>
+                ${shop.price}
+              </strong>
+
+            </div>
+
+
+
+            <div class="detail-item">
+
+              <span class="detail-label">
+                時間無制限
+              </span>
+
+              <strong>
+                ${shop.unlimited}
+              </strong>
+
+            </div>
+
+
+          </div>
+
+
+
+          <a
+            class="official-link"
+            href="${shop.officialUrl}"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            公式サイトを見る
+
+          </a>
+
+
+
+          <div class="last-confirmed">
+
+            最終確認日：
+            ${shop.lastConfirmed}
+
+          </div>
+
+        `;
+
+
+        shopList.appendChild(card);
+
       });
 
     }
 
-
-    function showCity(city) {
-
-      document.getElementById("selected-city").textContent =
-        city;
-
-      document.getElementById("shop-area").style.display =
-        "block";
-
-    }
 
   </script>
 

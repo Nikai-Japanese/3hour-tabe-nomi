@@ -86,7 +86,7 @@
 
       color: #fff;
 
-      padding: 70px 20px 80px;
+      padding: 70px 20px 50px;
 
       text-align: center;
     }
@@ -215,6 +215,287 @@
 
 
     /* =========================
+       検索結果エリア
+       ヒーロー直下に表示
+    ========================= */
+
+    #shop-area {
+      display: none;
+
+      max-width: 900px;
+
+      margin: 25px auto 0;
+
+      text-align: left;
+    }
+
+    .results-box {
+      background: #f7f7f7;
+
+      color: #222;
+
+      border-radius: 16px;
+
+      padding: 25px;
+
+      box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .results-title {
+      font-size: 24px;
+
+      font-weight: 800;
+
+      margin-bottom: 5px;
+    }
+
+    .results-subtitle {
+      color: #666;
+
+      font-size: 14px;
+
+      margin-bottom: 20px;
+    }
+
+    .shop-count {
+      margin-bottom: 15px;
+
+      color: #666;
+
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       店舗リスト
+    ========================= */
+
+    .shop-list {
+      display: grid;
+
+      gap: 18px;
+    }
+
+
+    /* =========================
+       店舗カード
+    ========================= */
+
+    .shop-card {
+      background: #fff;
+
+      border-radius: 16px;
+
+      padding: 25px;
+
+      box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.07);
+    }
+
+    .shop-header {
+      display: flex;
+
+      align-items: flex-start;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 20px;
+    }
+
+    .shop-name {
+      font-size: 23px;
+
+      font-weight: 800;
+
+      margin-bottom: 5px;
+    }
+
+    .shop-location {
+      color: #777;
+
+      font-size: 14px;
+    }
+
+    .verified-badge {
+      flex-shrink: 0;
+
+      background: #e9f7ef;
+
+      color: #187a43;
+
+      border-radius: 999px;
+
+      padding: 6px 10px;
+
+      font-size: 12px;
+
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       店舗条件
+    ========================= */
+
+    .shop-conditions {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 10px;
+
+      margin-bottom: 20px;
+    }
+
+    .shop-condition {
+      background: #f7f7f7;
+
+      border-radius: 10px;
+
+      padding: 13px 15px;
+    }
+
+    .shop-condition-label {
+      display: block;
+
+      color: #777;
+
+      font-size: 12px;
+
+      margin-bottom: 3px;
+    }
+
+    .shop-condition-value {
+      font-size: 16px;
+
+      font-weight: 800;
+    }
+
+
+    /* =========================
+       曜日条件
+    ========================= */
+
+    .weekday-title {
+      font-weight: 800;
+
+      margin-bottom: 10px;
+    }
+
+    .weekday-list {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 8px;
+
+      margin-bottom: 20px;
+    }
+
+    .weekday-item {
+      background: #fafafa;
+
+      border:
+        1px solid #eee;
+
+      border-radius: 8px;
+
+      padding: 9px;
+
+      font-size: 13px;
+    }
+
+    .weekday-item strong {
+      display: block;
+
+      margin-bottom: 2px;
+    }
+
+
+    /* =========================
+       店舗詳細
+    ========================= */
+
+    .shop-details {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 10px;
+
+      padding-top: 18px;
+
+      border-top:
+        1px solid #eee;
+
+      margin-bottom: 20px;
+    }
+
+    .detail-item {
+      font-size: 14px;
+    }
+
+    .detail-label {
+      color: #777;
+
+      margin-right: 6px;
+    }
+
+    .official-link {
+      display: inline-block;
+
+      background: #111;
+
+      color: #fff;
+
+      text-decoration: none;
+
+      border-radius: 9px;
+
+      padding: 11px 18px;
+
+      font-size: 14px;
+
+      font-weight: 700;
+    }
+
+    .official-link:hover {
+      opacity: 0.8;
+    }
+
+    .last-confirmed {
+      color: #888;
+
+      font-size: 12px;
+
+      margin-top: 12px;
+    }
+
+
+    /* =========================
+       店舗なし
+    ========================= */
+
+    .no-shops {
+      background: #fff;
+
+      border-radius: 14px;
+
+      padding: 35px 20px;
+
+      text-align: center;
+
+      color: #666;
+    }
+
+
+    /* =========================
        メイン
     ========================= */
 
@@ -331,246 +612,6 @@
 
 
     /* =========================
-       店舗エリア
-    ========================= */
-
-    #shop-area {
-      display: none;
-    }
-
-    .shop-count {
-      margin-bottom: 20px;
-
-      color: #666;
-
-      font-size: 14px;
-    }
-
-
-    /* =========================
-       店舗カード
-    ========================= */
-
-    .shop-list {
-      display: grid;
-
-      gap: 20px;
-    }
-
-    .shop-card {
-      background: #fff;
-
-      border-radius: 16px;
-
-      padding: 25px;
-
-      box-shadow:
-        0 4px 18px rgba(0, 0, 0, 0.07);
-    }
-
-    .shop-header {
-      display: flex;
-
-      align-items: flex-start;
-
-      justify-content: space-between;
-
-      gap: 15px;
-
-      margin-bottom: 20px;
-    }
-
-    .shop-name {
-      font-size: 23px;
-
-      font-weight: 800;
-
-      margin-bottom: 5px;
-    }
-
-    .shop-location {
-      color: #777;
-
-      font-size: 14px;
-    }
-
-    .verified-badge {
-      flex-shrink: 0;
-
-      background: #e9f7ef;
-
-      color: #187a43;
-
-      border-radius: 999px;
-
-      padding: 6px 10px;
-
-      font-size: 12px;
-
-      font-weight: 700;
-    }
-
-
-    /* =========================
-       店舗条件
-    ========================= */
-
-    .shop-conditions {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 10px;
-
-      margin-bottom: 20px;
-    }
-
-    .shop-condition {
-      background: #f7f7f7;
-
-      border-radius: 10px;
-
-      padding: 13px 15px;
-    }
-
-    .shop-condition-label {
-      display: block;
-
-      color: #777;
-
-      font-size: 12px;
-
-      margin-bottom: 3px;
-    }
-
-    .shop-condition-value {
-      font-size: 16px;
-
-      font-weight: 800;
-    }
-
-
-    /* =========================
-       曜日条件
-    ========================= */
-
-    .weekday-title {
-      font-weight: 800;
-
-      margin-bottom: 10px;
-    }
-
-    .weekday-list {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 8px;
-
-      margin-bottom: 20px;
-    }
-
-    .weekday-item {
-      background: #fafafa;
-
-      border:
-        1px solid #eee;
-
-      border-radius: 8px;
-
-      padding: 9px;
-
-      font-size: 13px;
-    }
-
-    .weekday-item strong {
-      display: block;
-
-      margin-bottom: 2px;
-    }
-
-
-    /* =========================
-       店舗詳細
-    ========================= */
-
-    .shop-details {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 10px;
-
-      padding-top: 18px;
-
-      border-top:
-        1px solid #eee;
-
-      margin-bottom: 20px;
-    }
-
-    .detail-item {
-      font-size: 14px;
-    }
-
-    .detail-label {
-      color: #777;
-
-      margin-right: 6px;
-    }
-
-    .official-link {
-      display: inline-block;
-
-      background: #111;
-
-      color: #fff;
-
-      text-decoration: none;
-
-      border-radius: 9px;
-
-      padding: 11px 18px;
-
-      font-size: 14px;
-
-      font-weight: 700;
-    }
-
-    .official-link:hover {
-      opacity: 0.8;
-    }
-
-    .last-confirmed {
-      color: #888;
-
-      font-size: 12px;
-
-      margin-top: 12px;
-    }
-
-
-    /* =========================
-       店舗なし
-    ========================= */
-
-    .no-shops {
-      background: #fff;
-
-      border-radius: 14px;
-
-      padding: 40px 20px;
-
-      text-align: center;
-
-      color: #666;
-    }
-
-
-    /* =========================
        特徴
     ========================= */
 
@@ -661,7 +702,8 @@
       }
 
       .hero {
-        padding: 50px 16px 60px;
+        padding:
+          50px 16px 30px;
       }
 
       .hero-text {
@@ -674,6 +716,35 @@
 
       .search-button {
         width: 100%;
+      }
+
+      #shop-area {
+        margin-top: 20px;
+      }
+
+      .results-box {
+        padding: 18px;
+      }
+
+      .results-title {
+        font-size: 21px;
+      }
+
+      .shop-header {
+        flex-direction: column;
+      }
+
+      .shop-conditions {
+        grid-template-columns: 1fr;
+      }
+
+      .weekday-list {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .shop-details {
+        grid-template-columns: 1fr;
       }
 
       main {
@@ -694,23 +765,6 @@
         grid-template-columns: 1fr;
       }
 
-      .shop-header {
-        flex-direction: column;
-      }
-
-      .shop-conditions {
-        grid-template-columns: 1fr;
-      }
-
-      .weekday-list {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-      .shop-details {
-        grid-template-columns: 1fr;
-      }
-
       .section-title {
         font-size: 24px;
       }
@@ -728,7 +782,8 @@
       }
 
       .condition-card {
-        padding: 18px 10px;
+        padding:
+          18px 10px;
       }
 
       .condition-number {
@@ -788,7 +843,9 @@
 
 
 
-      <!-- 検索 -->
+      <!-- =========================
+           検索
+      ========================== -->
 
       <div class="search-box">
 
@@ -799,7 +856,9 @@
 
         <div class="search-row">
 
-          <select id="citySelect">
+          <select
+            id="citySelect"
+            onchange="searchShops()">
 
             <option value="">
               都市を選択
@@ -859,6 +918,55 @@
         </div>
 
       </div>
+
+
+
+      <!-- =========================
+           店舗検索結果
+           ここを検索ボックス直下に配置
+      ========================== -->
+
+      <section
+        id="shop-area">
+
+
+        <div class="results-box">
+
+
+          <h2
+            class="results-title">
+
+            <span id="selected-city"></span>
+            の完全条件クリア店舗
+
+          </h2>
+
+
+          <p
+            class="results-subtitle">
+
+            あなたが設定した条件を
+            すべて満たす店舗だけを表示しています。
+
+          </p>
+
+
+          <p
+            class="shop-count"
+            id="shop-count">
+          </p>
+
+
+          <div
+            class="shop-list"
+            id="shop-list">
+          </div>
+
+
+        </div>
+
+      </section>
+
 
     </div>
 
@@ -1083,40 +1191,6 @@
 
 
     <!-- =========================
-         店舗表示
-    ========================== -->
-
-    <section
-      class="section"
-      id="shop-area">
-
-
-      <h2 class="section-title">
-
-        <span id="selected-city"></span>
-
-        の完全条件クリア店舗
-
-      </h2>
-
-
-      <p
-        class="shop-count"
-        id="shop-count">
-      </p>
-
-
-      <div
-        class="shop-list"
-        id="shop-list">
-      </div>
-
-
-    </section>
-
-
-
-    <!-- =========================
          特徴
     ========================== -->
 
@@ -1276,12 +1350,9 @@
     ==================================================
     店舗データ
 
-    今後ここに店舗を追加していきます。
-
-    掲載するのは完全条件クリアの店舗だけ。
+    完全条件クリアした店舗だけを登録します。
     ==================================================
     */
-
 
     const shops = [
 
@@ -1292,7 +1363,7 @@
 
         prefecture: "大阪府",
 
-        city: "大阪市",
+        city: "大阪",
 
         area: "梅田",
 
@@ -1354,7 +1425,9 @@
 
       if (!city) {
 
-        alert("都市を選択してください。");
+        document
+          .getElementById("shop-area")
+          .style.display = "none";
 
         return;
 
@@ -1369,7 +1442,7 @@
 
     /*
     ==================================================
-    都市カードをクリックした場合
+    都市カードをクリック
     ==================================================
     */
 
@@ -1428,18 +1501,13 @@
 
 
       /*
-      大阪市の場合も
-      「大阪」で検索できるようにする
+      選択された都市の店舗だけ抽出
       */
 
       const results =
         shops.filter(shop => {
 
-          return shop.city === city ||
-                 (
-                   city === "大阪" &&
-                   shop.prefecture === "大阪府"
-                 );
+          return shop.city === city;
 
         });
 
@@ -1489,6 +1557,7 @@
 
         const card =
           document.createElement("div");
+
 
         card.className =
           "shop-card";
@@ -1638,7 +1707,6 @@
               ${shop.holiday}
 
             </div>
-
 
 
           </div>

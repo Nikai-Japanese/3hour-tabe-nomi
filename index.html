@@ -241,7 +241,6 @@
 
     .shop-list {
       display: grid;
-
       gap: 18px;
     }
 
@@ -273,11 +272,8 @@
       margin-bottom: 20px;
     }
 
-
-    /* ★ 店名を目立つ色に変更 */
-
     .shop-name {
-      font-size: 23px;
+      font-size: 24px;
 
       font-weight: 800;
 
@@ -348,6 +344,10 @@
       font-weight: 800;
     }
 
+    .unlimited-value {
+      color: #187a43;
+    }
+
 
     /* =========================
        曜日条件
@@ -355,7 +355,6 @@
 
     .weekday-title {
       font-weight: 800;
-
       margin-bottom: 10px;
     }
 
@@ -373,8 +372,7 @@
     .weekday-item {
       background: #fafafa;
 
-      border:
-        1px solid #eee;
+      border: 1px solid #eee;
 
       border-radius: 8px;
 
@@ -385,7 +383,6 @@
 
     .weekday-item strong {
       display: block;
-
       margin-bottom: 2px;
     }
 
@@ -416,7 +413,6 @@
 
     .detail-label {
       color: #777;
-
       margin-right: 6px;
     }
 
@@ -552,16 +548,17 @@
       display: grid;
 
       grid-template-columns:
-        repeat(5, 1fr);
+        repeat(2, 1fr);
 
       gap: 14px;
+
+      max-width: 500px;
     }
 
     .city-card {
       background: #fff;
 
-      border:
-        1px solid #eee;
+      border: 1px solid #eee;
 
       border-radius: 12px;
 
@@ -814,44 +811,12 @@
               都市を選択
             </option>
 
-            <option value="東京">
-              東京
-            </option>
-
             <option value="大阪">
               大阪
             </option>
 
-            <option value="名古屋">
-              名古屋
-            </option>
-
             <option value="福岡">
               福岡
-            </option>
-
-            <option value="札幌">
-              札幌
-            </option>
-
-            <option value="横浜">
-              横浜
-            </option>
-
-            <option value="神戸">
-              神戸
-            </option>
-
-            <option value="京都">
-              京都
-            </option>
-
-            <option value="広島">
-              広島
-            </option>
-
-            <option value="仙台">
-              仙台
             </option>
 
           </select>
@@ -1024,17 +989,12 @@
       </h2>
 
       <p class="section-description">
-        現在は主要都市からスタート。順次全国へ拡大します。
+        現在、条件クリア店舗を確認できているエリアです。
       </p>
 
 
       <div class="cities">
 
-        <div
-          class="city-card"
-          onclick="selectCity('東京')">
-          東京
-        </div>
 
         <div
           class="city-card"
@@ -1042,11 +1002,6 @@
           大阪
         </div>
 
-        <div
-          class="city-card"
-          onclick="selectCity('名古屋')">
-          名古屋
-        </div>
 
         <div
           class="city-card"
@@ -1054,41 +1009,6 @@
           福岡
         </div>
 
-        <div
-          class="city-card"
-          onclick="selectCity('札幌')">
-          札幌
-        </div>
-
-        <div
-          class="city-card"
-          onclick="selectCity('横浜')">
-          横浜
-        </div>
-
-        <div
-          class="city-card"
-          onclick="selectCity('神戸')">
-          神戸
-        </div>
-
-        <div
-          class="city-card"
-          onclick="selectCity('京都')">
-          京都
-        </div>
-
-        <div
-          class="city-card"
-          onclick="selectCity('広島')">
-          広島
-        </div>
-
-        <div
-          class="city-card"
-          onclick="selectCity('仙台')">
-          仙台
-        </div>
 
       </div>
 
@@ -1195,7 +1115,13 @@
 
         <p>
           食べ放題180分以上、
-          飲み放題180分以上を必須条件とし、
+          飲み放題180分以上を必須条件とします。
+        </p>
+
+        <br>
+
+        <p>
+          時間制コースの場合は、
           飲み放題L.O.150分以上、
           食べ放題L.O.135分以上も確認します。
         </p>
@@ -1203,15 +1129,22 @@
         <br>
 
         <p>
-          金曜日・土曜日・祝前日などに
-          時間が短縮される店舗も掲載しません。
+          時間無制限の食べ飲み放題については、
+          通常のL.O.時間条件は適用しません。
         </p>
 
         <br>
 
         <p>
-          必要な条件を公式情報で確認できない店舗も
-          掲載対象外とします。
+          金曜日・土曜日・祝前日などに
+          時間が短縮される店舗は掲載しません。
+        </p>
+
+        <br>
+
+        <p>
+          金土祝前日に料金が上がるだけで、
+          時間が180分以上または無制限なら掲載可能です。
         </p>
 
       </div>
@@ -1248,10 +1181,17 @@
     /* ==================================================
        店舗データ
 
-       完全条件クリアした店舗だけを登録します。
+       掲載店舗は完全条件クリアのみ。
+
+       時間無制限の場合：
+       L.O.条件は適用しない。
     ================================================== */
 
     const shops = [
+
+      /* =========================
+         大阪
+      ========================= */
 
       {
         id: "osaka-kenzo-umeda",
@@ -1292,13 +1232,173 @@
           "180分",
 
         holiday:
-          "基本条件を満たす",
+          "180分",
 
         unlimited:
           "なし",
 
         lastConfirmed:
           "2026年8月12日"
+      },
+
+
+      /* =========================
+         福岡
+      ========================= */
+
+      {
+        id: "fukuoka-chikanokujira",
+
+        name: "地下のくじら",
+
+        prefecture: "福岡県",
+
+        city: "福岡",
+
+        area: "天神",
+
+        officialUrl:
+          "https://chikanokujira.owst.jp/",
+
+        eatingTime:
+          "時間無制限",
+
+        drinkingTime:
+          "時間無制限",
+
+        eatingLO:
+          "時間無制限のため適用なし",
+
+        drinkingLO:
+          "時間無制限のため適用なし",
+
+        price:
+          "通常4,600円（税込）",
+
+        friday:
+          "時間無制限",
+
+        saturday:
+          "時間無制限",
+
+        holidayEve:
+          "時間無制限",
+
+        holiday:
+          "時間無制限",
+
+        unlimited:
+          "あり",
+
+        priceNote:
+          "金・土・祝前・年末は現金4,400円（税込）",
+
+        lastConfirmed:
+          "2026年8月13日"
+      },
+
+
+      {
+        id: "fukuoka-haganeno-kujira",
+
+        name: "はがねのくじら 天神大名",
+
+        prefecture: "福岡県",
+
+        city: "福岡",
+
+        area: "今泉・天神大名",
+
+        officialUrl:
+          "https://haganenokujira.owst.jp/",
+
+        eatingTime:
+          "時間無制限",
+
+        drinkingTime:
+          "時間無制限",
+
+        eatingLO:
+          "時間無制限のため適用なし",
+
+        drinkingLO:
+          "時間無制限のため適用なし",
+
+        price:
+          "通常4,600円（税込）",
+
+        friday:
+          "時間無制限",
+
+        saturday:
+          "時間無制限",
+
+        holidayEve:
+          "時間無制限",
+
+        holiday:
+          "時間無制限",
+
+        unlimited:
+          "あり",
+
+        priceNote:
+          "金・土・祝前・年末は現金4,400円（税込）",
+
+        lastConfirmed:
+          "2026年8月13日"
+      },
+
+
+      {
+        id: "fukuoka-sakaba-kujira",
+
+        name: "酒場 くじら 天神",
+
+        prefecture: "福岡県",
+
+        city: "福岡",
+
+        area: "大名",
+
+        officialUrl:
+          "https://sakaba-kujira.owst.jp/",
+
+        eatingTime:
+          "時間無制限",
+
+        drinkingTime:
+          "時間無制限",
+
+        eatingLO:
+          "時間無制限のため適用なし",
+
+        drinkingLO:
+          "時間無制限のため適用なし",
+
+        price:
+          "通常4,800円（税込）",
+
+        friday:
+          "時間無制限",
+
+        saturday:
+          "時間無制限",
+
+        holidayEve:
+          "時間無制限",
+
+        holiday:
+          "時間無制限",
+
+        unlimited:
+          "あり",
+
+        priceNote:
+          "金・土・祝前・年末は現金4,500円（税込）",
+
+        lastConfirmed:
+          "2026年8月13日"
       }
 
     ];
@@ -1331,7 +1431,7 @@
 
 
     /* ==================================================
-       都市カードをクリック
+       都市カード
     ================================================== */
 
     function selectCity(city) {
@@ -1378,11 +1478,8 @@
 
       selectedCity.textContent = city;
 
-
       shopArea.style.display = "block";
 
-
-      /* 選択された都市の店舗だけ抽出 */
 
       const results =
         shops.filter(shop => {
@@ -1400,7 +1497,9 @@
       shopList.innerHTML = "";
 
 
-      /* 店舗がない場合 */
+      /* =========================
+         店舗なし
+      ========================= */
 
       if (results.length === 0) {
 
@@ -1426,7 +1525,9 @@
       }
 
 
-      /* 店舗カードを作成 */
+      /* =========================
+         店舗カード
+      ========================= */
 
       results.forEach(shop => {
 
@@ -1444,11 +1545,18 @@
 
             <div>
 
-             <div
-  class="shop-name"
-  style="color: #e67e22; font-size: 24px; font-weight: 800;">
-  ${shop.name}
-</div>
+              <div
+                class="shop-name"
+                style="
+                  color: #e67e22;
+                  font-size: 24px;
+                  font-weight: 800;
+                ">
+
+                ${shop.name}
+
+              </div>
+
 
               <div class="shop-location">
 
@@ -1477,8 +1585,14 @@
                 食べ放題
               </span>
 
-              <span class="shop-condition-value">
+              <span
+                class="shop-condition-value
+                  ${shop.unlimited === "あり"
+                    ? "unlimited-value"
+                    : ""}">
+
                 ${shop.eatingTime}
+
               </span>
 
             </div>
@@ -1490,8 +1604,14 @@
                 飲み放題
               </span>
 
-              <span class="shop-condition-value">
+              <span
+                class="shop-condition-value
+                  ${shop.unlimited === "あり"
+                    ? "unlimited-value"
+                    : ""}">
+
                 ${shop.drinkingTime}
+
               </span>
 
             </div>
@@ -1504,7 +1624,9 @@
               </span>
 
               <span class="shop-condition-value">
+
                 ${shop.eatingLO}
+
               </span>
 
             </div>
@@ -1517,7 +1639,9 @@
               </span>
 
               <span class="shop-condition-value">
+
                 ${shop.drinkingLO}
+
               </span>
 
             </div>
@@ -1603,14 +1727,40 @@
                 時間無制限
               </span>
 
-              <strong>
+              <strong
+                class="${shop.unlimited === "あり"
+                  ? "unlimited-value"
+                  : ""}">
+
                 ${shop.unlimited}
+
               </strong>
 
             </div>
 
 
           </div>
+
+
+          ${
+            shop.priceNote
+              ? `
+                <div
+                  style="
+                    margin-bottom: 18px;
+                    padding: 12px 14px;
+                    background: #fff8e1;
+                    border-radius: 9px;
+                    font-size: 13px;
+                    color: #665c00;
+                  ">
+
+                  ${shop.priceNote}
+
+                </div>
+              `
+              : ""
+          }
 
 
           <a

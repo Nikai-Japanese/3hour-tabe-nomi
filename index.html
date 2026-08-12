@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>3時間以上 食べ飲み放題</title>
+  <meta name="description" content="3時間以上の食べ放題・飲み放題が楽しめるお店を探せるサイト">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "Meiryo",
+        sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       ヘッダー
+    ========================= */
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 18px 20px;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .logo span {
+      color: #ffcc33;
+    }
+
+    /* =========================
+       ヒーロー
+    ========================= */
+
+    .hero {
+      background: linear-gradient(
+        135deg,
+        #111 0%,
+        #292929 100%
+      );
+
+      color: #fff;
+      padding: 70px 20px 80px;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #ffcc33;
+      color: #111;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 7vw, 64px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: #ffcc33;
+    }
+
+    .hero-text {
+      font-size: 17px;
+      color: #ddd;
+      max-width: 650px;
+      margin: 0 auto 35px;
+    }
+
+    /* =========================
+       検索エリア
+    ========================= */
+
+    .search-box {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      color: #222;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .search-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-row select {
+      flex: 1;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fff;
+      font-size: 15px;
+    }
+
+    .search-button {
+      border: none;
+      border-radius: 10px;
+      padding: 14px 24px;
+      background: #ffcc33;
+      color: #111;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .search-button:hover {
+      opacity: 0.85;
+    }
+
+    /* =========================
+       メイン
+    ========================= */
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-description {
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    /* =========================
+       条件カード
+    ========================= */
+
+    .conditions {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .condition-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px 18px;
+      text-align: center;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .condition-number {
+      font-size: 34px;
+      font-weight: 800;
+      color: #111;
+    }
+
+    .condition-unit {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .condition-title {
+      margin-top: 10px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       都市カード
+    ========================= */
+
+    .cities {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .city-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 20px 10px;
+      text-align: center;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .city-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* =========================
+       店舗表示エリア
+    ========================= */
+
+    #shop-area {
+      display: none;
+    }
+
+    .shop-message {
+      background: #fff;
+      border-radius: 14px;
+      padding: 35px 20px;
+      text-align: center;
+      color: #666;
+    }
+
+    /* =========================
+       サイトの特徴
+    ========================= */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 30px 22px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .feature-card p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* =========================
+       注意書き
+    ========================= */
+
+    .notice {
+      background: #fff;
+      border-left: 5px solid #ffcc33;
+      padding: 22px;
+      border-radius: 8px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    /* =========================
+       フッター
+    ========================= */
+
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 13px;
+    }
+
+    /* =========================
+       スマートフォン
+    ========================= */
+
+    @media (max-width: 768px) {
+
+      header {
+        padding: 15px;
+      }
+
+      .hero {
+        padding: 50px 16px 60px;
+      }
+
+      .hero-text {
+        font-size: 15px;
+      }
+
+      .search-row {
+        flex-direction: column;
+      }
+
+      .search-button {
+        width: 100%;
+      }
+
+      main {
+        padding: 45px 16px;
+      }
+
+      .conditions {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cities {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 400px) {
+
+      .conditions {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .condition-card {
+        padding: 18px 10px;
+      }
+
+      .condition-number {
+        font-size: 28px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       ヘッダー
+  ========================== -->
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span>3H</span> 食べ飲み放題
+      </div>
+    </div>
+  </header>
+
+
+  <!-- =========================
+       ヒーロー
+  ========================== -->
+
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <div class="hero-badge">
+        3時間以上だけ
+      </div>
+
+      <h1>
+        3時間以上の<br>
+        <span>食べ飲み放題</span>を探す
+      </h1>
+
+      <p class="hero-text">
+        「短い食べ放題・飲み放題はいらない」<br>
+        そんな人のための、3時間以上にこだわった検索サイトです。
+      </p>
+
+
+      <!-- 検索 -->
+
+      <div class="search-box">
+
+        <div class="search-title">
+          行きたいエリアを選んでください
+        </div>
+
+        <div class="search-row">
+
+          <select id="citySelect">
+            <option value="">都市を選択</option>
+            <option value="東京">東京</option>
+            <option value="大阪">大阪</option>
+            <option value="名古屋">名古屋</option>
+            <option value="福岡">福岡</option>
+            <option value="札幌">札幌</option>
+            <option value="横浜">横浜</option>
+            <option value="神戸">神戸</option>
+            <option value="京都">京都</option>
+            <option value="広島">広島</option>
+            <option value="仙台">仙台</option>
+          </select>
+
+          <button
+            class="search-button"
+            onclick="searchShops()">
+            お店を探す
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       メイン
+  ========================== -->
+
+  <main>
+
+
+    <!-- 条件 -->
+
+    <section class="section">
+
+      <h2 class="section-title">
+        このサイトの「3時間以上」
+      </h2>
+
+      <p class="section-description">
+        掲載するお店は、厳しい条件をクリアした店舗だけです。
+      </p>
+
+
+      <div class="conditions">
+
+        <div class="condition-card">
+          <div class="condition-number">180</div>
+          <div class="condition-unit">分以上</div>
+          <div class="condition-title">
+            食べ放題
+          </div>
+        </div>
+
+        <div class="condition-card">
+          <div class="condition-number">180</div>
+          <div class="condition-unit">分以上</div>
+          <div class="condition-title">
+            飲み放題
+          </div>
+        </div>
+
+        <div class="condition-card">
+          <div class="condition-number">150</div>
+          <div class="condition-unit">分以上</div>
+          <div class="condition-title">
+            飲み放題 L.O.
+          </div>
+        </div>
+
+        <div class="condition-card">
+          <div class="condition-number">135</div>
+          <div class="condition-unit">分以上</div>
+          <div class="condition-title">
+            食べ放題 L.O.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 都市 -->
+
+    <section class="section">
+
+      <h2 class="section-title">
+        エリアから探す
+      </h2>
+
+      <p class="section-description">
+        現在は主要都市からスタート。順次全国へ拡大します。
+      </p>
+
+      <div class="cities">
+
+        <div class="city-card" onclick="selectCity('東京')">
+          東京
+        </div>
+
+        <div class="city-card" onclick="selectCity('大阪')">
+          大阪
+        </div>
+
+        <div class="city-card" onclick="selectCity('名古屋')">
+          名古屋
+        </div>
+
+        <div class="city-card" onclick="selectCity('福岡')">
+          福岡
+        </div>
+
+        <div class="city-card" onclick="selectCity('札幌')">
+          札幌
+        </div>
+
+        <div class="city-card" onclick="selectCity('横浜')">
+          横浜
+        </div>
+
+        <div class="city-card" onclick="selectCity('神戸')">
+          神戸
+        </div>
+
+        <div class="city-card" onclick="selectCity('京都')">
+          京都
+        </div>
+
+        <div class="city-card" onclick="selectCity('広島')">
+          広島
+        </div>
+
+        <div class="city-card" onclick="selectCity('仙台')">
+          仙台
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 店舗表示 -->
+
+    <section
+      class="section"
+      id="shop-area">
+
+      <h2 class="section-title">
+        <span id="selected-city"></span>のお店
+      </h2>
+
+      <div class="shop-message">
+
+        <p>
+          現在、店舗情報を準備しています。
+        </p>
+
+        <p style="margin-top: 8px;">
+          条件を満たしたお店だけを掲載します。
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- 特徴 -->
+
+    <section class="section">
+
+      <h2 class="section-title">
+        このサイトの特徴
+      </h2>
+
+      <p class="section-description">
+        「とにかく長く楽しみたい」という人のために。
+      </p>
+
+
+      <div class="features">
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            ⏱️
+          </div>
+
+          <h3>
+            3時間以上に限定
+          </h3>
+
+          <p>
+            180分未満のプランは基本的に掲載対象にしません。
+            長時間楽しめるお店を探しやすくします。
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            🍖
+          </div>
+
+          <h3>
+            食べ放題＋飲み放題
+          </h3>
+
+          <p>
+            食べ放題だけ、飲み放題だけではなく、
+            食べ飲み放題を中心に探せるサイトです。
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            🔎
+          </div>
+
+          <h3>
+            条件をしっかり確認
+          </h3>
+
+          <p>
+            食べ放題・飲み放題の時間だけでなく、
+            ラストオーダーや曜日条件なども確認します。
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 掲載基準 -->
+
+    <section class="section">
+
+      <h2 class="section-title">
+        掲載基準
+      </h2>
+
+      <div class="notice">
+
+        <p>
+          当サイトでは、長時間の食べ飲み放題を探している人のため、
+          掲載条件を設定しています。
+        </p>
+
+        <br>
+
+        <p>
+          食べ放題180分以上、飲み放題180分以上を基本とし、
+          ラストオーダーや金曜・土曜・祝前日などの条件も確認します。
+        </p>
+
+        <br>
+
+        <p>
+          今後、店舗情報を一件ずつ確認し、
+          条件を満たした店舗のみ掲載していきます。
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       フッター
+  ========================== -->
+
+  <footer>
+
+    <p>
+      3H 食べ飲み放題
+    </p>
+
+    <p style="margin-top: 8px;">
+      3時間以上の食べ飲み放題を探すためのサイト
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       JavaScript
+  ========================== -->
+
+  <script>
+
+    function searchShops() {
+
+      const city =
+        document.getElementById("citySelect").value;
+
+      if (!city) {
+
+        alert("都市を選択してください。");
+
+        return;
+      }
+
+      showCity(city);
+    }
+
+
+    function selectCity(city) {
+
+      document.getElementById("citySelect").value = city;
+
+      showCity(city);
+
+      window.scrollTo({
+        top:
+          document.getElementById("shop-area").offsetTop - 20,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    function showCity(city) {
+
+      document.getElementById("selected-city").textContent =
+        city;
+
+      document.getElementById("shop-area").style.display =
+        "block";
+
+    }
+
+  </script>
+
+</body>
+</html>

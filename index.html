@@ -184,7 +184,7 @@
 
 
     /* =========================
-       検索結果エリア
+       検索結果
     ========================= */
 
     #shop-area {
@@ -241,6 +241,7 @@
 
     .shop-list {
       display: grid;
+
       gap: 18px;
     }
 
@@ -306,40 +307,60 @@
 
 
     /* =========================
-       店舗条件
+       料金・時間
     ========================= */
 
-    .shop-conditions {
+    .period-block {
+      margin-bottom: 18px;
+    }
+
+    .period-title {
+      font-size: 17px;
+
+      font-weight: 800;
+
+      padding: 10px 12px;
+
+      background: #111;
+
+      color: #fff;
+
+      border-radius: 9px 9px 0 0;
+    }
+
+    .period-grid {
       display: grid;
 
       grid-template-columns:
         repeat(2, 1fr);
 
-      gap: 10px;
+      gap: 1px;
 
-      margin-bottom: 20px;
+      background: #e5e5e5;
+
+      border-radius: 0 0 9px 9px;
+
+      overflow: hidden;
     }
 
-    .shop-condition {
-      background: #f7f7f7;
+    .period-item {
+      background: #fafafa;
 
-      border-radius: 10px;
-
-      padding: 13px 15px;
+      padding: 13px 14px;
     }
 
-    .shop-condition-label {
+    .period-label {
       display: block;
 
       color: #777;
 
       font-size: 12px;
 
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
 
-    .shop-condition-value {
-      font-size: 16px;
+    .period-value {
+      font-size: 15px;
 
       font-weight: 800;
     }
@@ -348,42 +369,27 @@
       color: #187a43;
     }
 
+    .cash-price {
+      color: #b45f06;
+    }
+
 
     /* =========================
-       曜日条件
+       料金補足
     ========================= */
 
-    .weekday-title {
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
+    .price-note {
+      margin-bottom: 18px;
 
-    .weekday-list {
-      display: grid;
+      padding: 12px 14px;
 
-      grid-template-columns:
-        repeat(4, 1fr);
+      background: #fff8e1;
 
-      gap: 8px;
-
-      margin-bottom: 20px;
-    }
-
-    .weekday-item {
-      background: #fafafa;
-
-      border: 1px solid #eee;
-
-      border-radius: 8px;
-
-      padding: 9px;
+      border-radius: 9px;
 
       font-size: 13px;
-    }
 
-    .weekday-item strong {
-      display: block;
-      margin-bottom: 2px;
+      color: #665c00;
     }
 
 
@@ -413,6 +419,7 @@
 
     .detail-label {
       color: #777;
+
       margin-right: 6px;
     }
 
@@ -700,13 +707,8 @@
         flex-direction: column;
       }
 
-      .shop-conditions {
+      .period-grid {
         grid-template-columns: 1fr;
-      }
-
-      .weekday-list {
-        grid-template-columns:
-          repeat(2, 1fr);
       }
 
       .shop-details {
@@ -999,14 +1001,18 @@
         <div
           class="city-card"
           onclick="selectCity('大阪')">
+
           大阪
+
         </div>
 
 
         <div
           class="city-card"
           onclick="selectCity('福岡')">
+
           福岡
+
         </div>
 
 
@@ -1180,11 +1186,6 @@
 
     /* ==================================================
        店舗データ
-
-       掲載店舗は完全条件クリアのみ。
-
-       時間無制限の場合：
-       L.O.条件は適用しない。
     ================================================== */
 
     const shops = [
@@ -1207,35 +1208,36 @@
         officialUrl:
           "https://izakayakenzo.owst.jp/",
 
-        eatingTime:
-          "180分",
+        normal: {
+          label: "日〜木",
 
-        drinkingTime:
-          "180分",
+          eatingTime: "180分",
+          drinkingTime: "180分",
 
-        eatingLO:
-          "135分",
+          eatingLO: "135分",
+          drinkingLO: "150分",
 
-        drinkingLO:
-          "150分",
+          price: "3,300円（税込）",
+          cashPrice: "3,300円（税込）"
+        },
 
-        price:
-          "3,300円（税込）",
+        weekend: {
+          label: "金・土・祝前日",
 
-        friday:
-          "180分",
+          eatingTime: "180分",
+          drinkingTime: "180分",
 
-        saturday:
-          "180分",
+          eatingLO: "135分",
+          drinkingLO: "150分",
 
-        holidayEve:
-          "180分",
+          price: "3,300円（税込）",
+          cashPrice: "3,300円（税込）"
+        },
 
-        holiday:
-          "180分",
+        unlimited: false,
 
-        unlimited:
-          "なし",
+        priceNote:
+          "",
 
         lastConfirmed:
           "2026年8月12日"
@@ -1260,38 +1262,36 @@
         officialUrl:
           "https://chikanokujira.owst.jp/",
 
-        eatingTime:
-          "時間無制限",
+        normal: {
+          label: "日〜木",
 
-        drinkingTime:
-          "時間無制限",
+          eatingTime: "時間無制限",
+          drinkingTime: "時間無制限",
 
-        eatingLO:
-          "時間無制限のため適用なし",
+          eatingLO: "時間無制限",
+          drinkingLO: "時間無制限",
 
-        drinkingLO:
-          "時間無制限のため適用なし",
+          price: "4,600円（税込）",
+          cashPrice: "4,300円（税込）"
+        },
 
-        price:
-          "通常4,600円（税込）",
+        weekend: {
+          label: "金・土・祝前日",
 
-        friday:
-          "時間無制限",
+          eatingTime: "時間無制限",
+          drinkingTime: "時間無制限",
 
-        saturday:
-          "時間無制限",
+          eatingLO: "時間無制限",
+          drinkingLO: "時間無制限",
 
-        holidayEve:
-          "時間無制限",
+          price: "4,600円（税込）",
+          cashPrice: "4,400円（税込）"
+        },
 
-        holiday:
-          "時間無制限",
-
-        unlimited:
-          "あり",
+        unlimited: true,
 
         priceNote:
-          "金・土・祝前・年末は現金4,400円（税込）",
+          "時間無制限の食べ飲み放題。金・土・祝前日も時間短縮なし。",
 
         lastConfirmed:
           "2026年8月13日"
@@ -1312,38 +1312,36 @@
         officialUrl:
           "https://haganenokujira.owst.jp/",
 
-        eatingTime:
-          "時間無制限",
+        normal: {
+          label: "日〜木",
 
-        drinkingTime:
-          "時間無制限",
+          eatingTime: "時間無制限",
+          drinkingTime: "時間無制限",
 
-        eatingLO:
-          "時間無制限のため適用なし",
+          eatingLO: "時間無制限",
+          drinkingLO: "時間無制限",
 
-        drinkingLO:
-          "時間無制限のため適用なし",
+          price: "4,600円（税込）",
+          cashPrice: "4,300円（税込）"
+        },
 
-        price:
-          "通常4,600円（税込）",
+        weekend: {
+          label: "金・土・祝前日",
 
-        friday:
-          "時間無制限",
+          eatingTime: "時間無制限",
+          drinkingTime: "時間無制限",
 
-        saturday:
-          "時間無制限",
+          eatingLO: "時間無制限",
+          drinkingLO: "時間無制限",
 
-        holidayEve:
-          "時間無制限",
+          price: "4,600円（税込）",
+          cashPrice: "4,400円（税込）"
+        },
 
-        holiday:
-          "時間無制限",
-
-        unlimited:
-          "あり",
+        unlimited: true,
 
         priceNote:
-          "金・土・祝前・年末は現金4,400円（税込）",
+          "時間無制限の食べ飲み放題。金・土・祝前日も時間短縮なし。",
 
         lastConfirmed:
           "2026年8月13日"
@@ -1364,38 +1362,36 @@
         officialUrl:
           "https://sakaba-kujira.owst.jp/",
 
-        eatingTime:
-          "時間無制限",
+        normal: {
+          label: "日〜木",
 
-        drinkingTime:
-          "時間無制限",
+          eatingTime: "時間無制限",
+          drinkingTime: "時間無制限",
 
-        eatingLO:
-          "時間無制限のため適用なし",
+          eatingLO: "時間無制限",
+          drinkingLO: "時間無制限",
 
-        drinkingLO:
-          "時間無制限のため適用なし",
+          price: "4,800円（税込）",
+          cashPrice: "4,500円（税込）"
+        },
 
-        price:
-          "通常4,800円（税込）",
+        weekend: {
+          label: "金・土・祝前日",
 
-        friday:
-          "時間無制限",
+          eatingTime: "時間無制限",
+          drinkingTime: "時間無制限",
 
-        saturday:
-          "時間無制限",
+          eatingLO: "時間無制限",
+          drinkingLO: "時間無制限",
 
-        holidayEve:
-          "時間無制限",
+          price: "4,800円（税込）",
+          cashPrice: "4,500円（税込）"
+        },
 
-        holiday:
-          "時間無制限",
-
-        unlimited:
-          "あり",
+        unlimited: true,
 
         priceNote:
-          "金・土・祝前・年末は現金4,500円（税込）",
+          "時間無制限の食べ飲み放題。",
 
         lastConfirmed:
           "2026年8月13日"
@@ -1458,6 +1454,133 @@
 
 
     /* ==================================================
+       期間ブロック作成
+    ================================================== */
+
+    function createPeriodBlock(period) {
+
+      return `
+
+        <div class="period-block">
+
+          <div class="period-title">
+            ${period.label}
+          </div>
+
+          <div class="period-grid">
+
+
+            <div class="period-item">
+
+              <span class="period-label">
+                食べ放題
+              </span>
+
+              <span
+                class="
+                  period-value
+                  ${period.eatingTime === "時間無制限"
+                    ? "unlimited-value"
+                    : ""}
+                ">
+
+                ${period.eatingTime}
+
+              </span>
+
+            </div>
+
+
+            <div class="period-item">
+
+              <span class="period-label">
+                飲み放題
+              </span>
+
+              <span
+                class="
+                  period-value
+                  ${period.drinkingTime === "時間無制限"
+                    ? "unlimited-value"
+                    : ""}
+                ">
+
+                ${period.drinkingTime}
+
+              </span>
+
+            </div>
+
+
+            <div class="period-item">
+
+              <span class="period-label">
+                食べ放題 L.O.
+              </span>
+
+              <span class="period-value">
+
+                ${period.eatingLO}
+
+              </span>
+
+            </div>
+
+
+            <div class="period-item">
+
+              <span class="period-label">
+                飲み放題 L.O.
+              </span>
+
+              <span class="period-value">
+
+                ${period.drinkingLO}
+
+              </span>
+
+            </div>
+
+
+            <div class="period-item">
+
+              <span class="period-label">
+                料金
+              </span>
+
+              <span class="period-value">
+
+                ${period.price}
+
+              </span>
+
+            </div>
+
+
+            <div class="period-item">
+
+              <span class="period-label">
+                現金払い
+              </span>
+
+              <span class="period-value cash-price">
+
+                ${period.cashPrice}
+
+              </span>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      `;
+    }
+
+
+    /* ==================================================
        店舗表示
     ================================================== */
 
@@ -1476,9 +1599,12 @@
         document.getElementById("shop-count");
 
 
-      selectedCity.textContent = city;
+      selectedCity.textContent =
+        city;
 
-      shopArea.style.display = "block";
+
+      shopArea.style.display =
+        "block";
 
 
       const results =
@@ -1546,12 +1672,7 @@
             <div>
 
               <div
-                class="shop-name"
-                style="
-                  color: #e67e22;
-                  font-size: 24px;
-                  font-weight: 800;
-                ">
+                class="shop-name">
 
                 ${shop.name}
 
@@ -1576,150 +1697,28 @@
           </div>
 
 
-          <div class="shop-conditions">
+          ${createPeriodBlock(shop.normal)}
 
 
-            <div class="shop-condition">
-
-              <span class="shop-condition-label">
-                食べ放題
-              </span>
-
-              <span
-                class="shop-condition-value
-                  ${shop.unlimited === "あり"
-                    ? "unlimited-value"
-                    : ""}">
-
-                ${shop.eatingTime}
-
-              </span>
-
-            </div>
+          ${createPeriodBlock(shop.weekend)}
 
 
-            <div class="shop-condition">
+          ${
+            shop.priceNote
+              ? `
 
-              <span class="shop-condition-label">
-                飲み放題
-              </span>
+                <div class="price-note">
 
-              <span
-                class="shop-condition-value
-                  ${shop.unlimited === "あり"
-                    ? "unlimited-value"
-                    : ""}">
+                  ${shop.priceNote}
 
-                ${shop.drinkingTime}
+                </div>
 
-              </span>
-
-            </div>
-
-
-            <div class="shop-condition">
-
-              <span class="shop-condition-label">
-                食べ放題 L.O.
-              </span>
-
-              <span class="shop-condition-value">
-
-                ${shop.eatingLO}
-
-              </span>
-
-            </div>
-
-
-            <div class="shop-condition">
-
-              <span class="shop-condition-label">
-                飲み放題 L.O.
-              </span>
-
-              <span class="shop-condition-value">
-
-                ${shop.drinkingLO}
-
-              </span>
-
-            </div>
-
-
-          </div>
-
-
-          <div class="weekday-title">
-            曜日・祝前日の時間
-          </div>
-
-
-          <div class="weekday-list">
-
-
-            <div class="weekday-item">
-
-              <strong>
-                金曜日
-              </strong>
-
-              ${shop.friday}
-
-            </div>
-
-
-            <div class="weekday-item">
-
-              <strong>
-                土曜日
-              </strong>
-
-              ${shop.saturday}
-
-            </div>
-
-
-            <div class="weekday-item">
-
-              <strong>
-                祝前日
-              </strong>
-
-              ${shop.holidayEve}
-
-            </div>
-
-
-            <div class="weekday-item">
-
-              <strong>
-                祝日
-              </strong>
-
-              ${shop.holiday}
-
-            </div>
-
-
-          </div>
+              `
+              : ""
+          }
 
 
           <div class="shop-details">
-
-
-            <div class="detail-item">
-
-              <span class="detail-label">
-                料金
-              </span>
-
-              <strong>
-                ${shop.price}
-              </strong>
-
-            </div>
-
 
             <div class="detail-item">
 
@@ -1728,39 +1727,32 @@
               </span>
 
               <strong
-                class="${shop.unlimited === "あり"
-                  ? "unlimited-value"
-                  : ""}">
+                class="
+                  ${shop.unlimited
+                    ? "unlimited-value"
+                    : ""}
+                ">
 
-                ${shop.unlimited}
+                ${shop.unlimited ? "あり" : "なし"}
 
               </strong>
 
             </div>
 
 
+            <div class="detail-item">
+
+              <span class="detail-label">
+                エリア
+              </span>
+
+              <strong>
+                ${shop.area}
+              </strong>
+
+            </div>
+
           </div>
-
-
-          ${
-            shop.priceNote
-              ? `
-                <div
-                  style="
-                    margin-bottom: 18px;
-                    padding: 12px 14px;
-                    background: #fff8e1;
-                    border-radius: 9px;
-                    font-size: 13px;
-                    color: #665c00;
-                  ">
-
-                  ${shop.priceNote}
-
-                </div>
-              `
-              : ""
-          }
 
 
           <a

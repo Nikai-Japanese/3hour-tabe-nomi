@@ -55,7 +55,9 @@
         );
 
       color: #fff;
+
       padding: 25px 20px 50px;
+
       text-align: center;
     }
 
@@ -66,8 +68,11 @@
 
     .hero h1 {
       font-size: clamp(32px, 7vw, 64px);
+
       line-height: 1.2;
+
       margin-bottom: 20px;
+
       font-weight: 800;
     }
 
@@ -77,8 +82,11 @@
 
     .hero-text {
       font-size: 17px;
+
       color: #ddd;
+
       max-width: 650px;
+
       margin: 0 auto 35px;
     }
 
@@ -89,11 +97,13 @@
 
     .search-box {
       max-width: 760px;
+
       margin: 0 auto;
 
       background: #fff;
 
       border-radius: 16px;
+
       padding: 20px;
 
       color: #222;
@@ -104,6 +114,7 @@
 
     .search-title {
       font-size: 16px;
+
       font-weight: 700;
 
       margin-bottom: 12px;
@@ -113,26 +124,29 @@
 
     .search-row {
       display: flex;
+
       gap: 10px;
     }
 
 
     /* =========================
        プルダウン
+       矢印なし
     ========================= */
 
     .select-wrapper {
-      position: relative;
       flex: 1;
+
       min-width: 0;
     }
 
     .select-wrapper select {
       width: 100%;
 
-      padding: 14px 55px 14px 14px;
+      padding: 14px;
 
-      border: 1px solid #ddd;
+      border:
+        1px solid #ddd;
 
       border-radius: 10px;
 
@@ -144,21 +158,6 @@
       -webkit-appearance: none;
 
       cursor: pointer;
-    }
-
-    .select-arrow {
-      position: absolute;
-
-      right: 30px;
-      top: 50%;
-
-      transform: translateY(-55%);
-
-      font-size: 20px;
-
-      color: #555;
-
-      pointer-events: none;
     }
 
 
@@ -174,6 +173,7 @@
       padding: 14px 24px;
 
       background: #ffcc33;
+
       color: #111;
 
       font-weight: 800;
@@ -217,6 +217,7 @@
 
     .results-title {
       font-size: 24px;
+
       font-weight: 800;
 
       margin-bottom: 5px;
@@ -245,6 +246,7 @@
 
     .shop-list {
       display: grid;
+
       gap: 18px;
     }
 
@@ -350,6 +352,7 @@
 
     .cash-price {
       color: #d32f2f;
+
       font-weight: 800;
     }
 
@@ -564,7 +567,8 @@
     .city-card {
       background: #fff;
 
-      border: 1px solid #eee;
+      border:
+        1px solid #eee;
 
       border-radius: 12px;
 
@@ -770,6 +774,7 @@
 
       .official-link {
         padding: 10px 13px;
+
         font-size: 13px;
       }
 
@@ -837,11 +842,6 @@
               </option>
 
             </select>
-
-
-            <span class="select-arrow">
-              ⌄
-            </span>
 
           </div>
 
@@ -1688,6 +1688,10 @@
       shopList.innerHTML = "";
 
 
+      /* =========================
+         店舗なし
+      ========================= */
+
       if (results.length === 0) {
 
         shopList.innerHTML = `
@@ -1711,6 +1715,10 @@
         return;
       }
 
+
+      /* =========================
+         店舗カード
+      ========================= */
 
       results.forEach(shop => {
 

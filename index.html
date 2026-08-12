@@ -43,37 +43,6 @@
 
 
     /* =========================
-       ヘッダー
-    ========================= */
-
-    header {
-      background: #111;
-      color: #fff;
-      padding: 18px 20px;
-    }
-
-    .header-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: 800;
-      color: #e67e22;
-      letter-spacing: 5px;
-    }
-
-    .logo span {
-      color: #ffcc33;
-    }
-
-
-    /* =========================
        ヒーロー
     ========================= */
 
@@ -182,8 +151,7 @@
 
       padding: 14px;
 
-      border:
-        1px solid #ddd;
+      border: 1px solid #ddd;
 
       border-radius: 10px;
 
@@ -217,7 +185,6 @@
 
     /* =========================
        検索結果エリア
-       ヒーロー直下に表示
     ========================= */
 
     #shop-area {
@@ -306,11 +273,16 @@
       margin-bottom: 20px;
     }
 
+
+    /* ★ 店名を目立つ色に変更 */
+
     .shop-name {
       font-size: 23px;
 
       font-weight: 800;
-       color: #e67e22;
+
+      color: #e67e22;
+
       margin-bottom: 5px;
     }
 
@@ -698,13 +670,9 @@
 
     @media (max-width: 768px) {
 
-      header {
-        padding: 15px;
-      }
-
       .hero {
         padding:
-          50px 16px 30px;
+          40px 16px 30px;
       }
 
       .hero-text {
@@ -800,7 +768,6 @@
 <body>
 
 
- 
   <!-- =========================
        ヒーロー
   ========================== -->
@@ -824,7 +791,6 @@
         「短い食べ放題・飲み放題はいらない」<br>
         そんな人のための、3時間以上にこだわった検索サイトです。
       </p>
-
 
 
       <!-- =========================
@@ -904,21 +870,15 @@
       </div>
 
 
-
       <!-- =========================
            店舗検索結果
-           ここを検索ボックス直下に配置
       ========================== -->
 
-      <section
-        id="shop-area">
-
+      <section id="shop-area">
 
         <div class="results-box">
 
-
-          <h2
-            class="results-title">
+          <h2 class="results-title">
 
             <span id="selected-city"></span>
             の完全条件クリア店舗
@@ -926,8 +886,7 @@
           </h2>
 
 
-          <p
-            class="results-subtitle">
+          <p class="results-subtitle">
 
             あなたが設定した条件を
             すべて満たす店舗だけを表示しています。
@@ -946,7 +905,6 @@
             id="shop-list">
           </div>
 
-
         </div>
 
       </section>
@@ -955,7 +913,6 @@
     </div>
 
   </section>
-
 
 
   <!-- =========================
@@ -1000,7 +957,6 @@
         </div>
 
 
-
         <div class="condition-card">
 
           <div class="condition-number">
@@ -1018,7 +974,6 @@
         </div>
 
 
-
         <div class="condition-card">
 
           <div class="condition-number">
@@ -1034,7 +989,6 @@
           </div>
 
         </div>
-
 
 
         <div class="condition-card">
@@ -1059,7 +1013,6 @@
     </section>
 
 
-
     <!-- =========================
          都市
     ========================== -->
@@ -1077,101 +1030,69 @@
 
       <div class="cities">
 
-
         <div
           class="city-card"
           onclick="selectCity('東京')">
-
           東京
-
         </div>
-
 
         <div
           class="city-card"
           onclick="selectCity('大阪')">
-
           大阪
-
         </div>
-
 
         <div
           class="city-card"
           onclick="selectCity('名古屋')">
-
           名古屋
-
         </div>
-
 
         <div
           class="city-card"
           onclick="selectCity('福岡')">
-
           福岡
-
         </div>
-
 
         <div
           class="city-card"
           onclick="selectCity('札幌')">
-
           札幌
-
         </div>
-
 
         <div
           class="city-card"
           onclick="selectCity('横浜')">
-
           横浜
-
         </div>
-
 
         <div
           class="city-card"
           onclick="selectCity('神戸')">
-
           神戸
-
         </div>
-
 
         <div
           class="city-card"
           onclick="selectCity('京都')">
-
           京都
-
         </div>
-
 
         <div
           class="city-card"
           onclick="selectCity('広島')">
-
           広島
-
         </div>
-
 
         <div
           class="city-card"
           onclick="selectCity('仙台')">
-
           仙台
-
         </div>
-
 
       </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -1210,7 +1131,6 @@
         </div>
 
 
-
         <div class="feature-card">
 
           <div class="feature-icon">
@@ -1227,7 +1147,6 @@
           </p>
 
         </div>
-
 
 
         <div class="feature-card">
@@ -1251,7 +1170,6 @@
       </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -1304,7 +1222,6 @@
   </main>
 
 
-
   <!-- =========================
        フッター
   ========================== -->
@@ -1322,21 +1239,17 @@
   </footer>
 
 
-
   <!-- =========================
        JavaScript
   ========================== -->
 
   <script>
 
+    /* ==================================================
+       店舗データ
 
-    /*
-    ==================================================
-    店舗データ
-
-    完全条件クリアした店舗だけを登録します。
-    ==================================================
-    */
+       完全条件クリアした店舗だけを登録します。
+    ================================================== */
 
     const shops = [
 
@@ -1386,18 +1299,14 @@
 
         lastConfirmed:
           "2026年8月12日"
-
       }
 
     ];
 
 
-
-    /*
-    ==================================================
-    店舗検索
-    ==================================================
-    */
+    /* ==================================================
+       店舗検索
+    ================================================== */
 
     function searchShops() {
 
@@ -1414,21 +1323,16 @@
           .style.display = "none";
 
         return;
-
       }
 
 
       showCity(city);
-
     }
 
 
-
-    /*
-    ==================================================
-    都市カードをクリック
-    ==================================================
-    */
+    /* ==================================================
+       都市カードをクリック
+    ================================================== */
 
     function selectCity(city) {
 
@@ -1450,16 +1354,12 @@
           });
 
       }, 100);
-
     }
 
 
-
-    /*
-    ==================================================
-    店舗表示
-    ==================================================
-    */
+    /* ==================================================
+       店舗表示
+    ================================================== */
 
     function showCity(city) {
 
@@ -1476,17 +1376,13 @@
         document.getElementById("shop-count");
 
 
-      selectedCity.textContent =
-        city;
+      selectedCity.textContent = city;
 
 
-      shopArea.style.display =
-        "block";
+      shopArea.style.display = "block";
 
 
-      /*
-      選択された都市の店舗だけ抽出
-      */
+      /* 選択された都市の店舗だけ抽出 */
 
       const results =
         shops.filter(shop => {
@@ -1504,9 +1400,7 @@
       shopList.innerHTML = "";
 
 
-      /*
-      店舗がない場合
-      */
+      /* 店舗がない場合 */
 
       if (results.length === 0) {
 
@@ -1529,13 +1423,10 @@
         `;
 
         return;
-
       }
 
 
-      /*
-      店舗カードを作成
-      */
+      /* 店舗カードを作成 */
 
       results.forEach(shop => {
 
@@ -1575,7 +1466,6 @@
           </div>
 
 
-
           <div class="shop-conditions">
 
 
@@ -1592,7 +1482,6 @@
             </div>
 
 
-
             <div class="shop-condition">
 
               <span class="shop-condition-label">
@@ -1606,7 +1495,6 @@
             </div>
 
 
-
             <div class="shop-condition">
 
               <span class="shop-condition-label">
@@ -1618,7 +1506,6 @@
               </span>
 
             </div>
-
 
 
             <div class="shop-condition">
@@ -1635,7 +1522,6 @@
 
 
           </div>
-
 
 
           <div class="weekday-title">
@@ -1657,7 +1543,6 @@
             </div>
 
 
-
             <div class="weekday-item">
 
               <strong>
@@ -1669,7 +1554,6 @@
             </div>
 
 
-
             <div class="weekday-item">
 
               <strong>
@@ -1679,7 +1563,6 @@
               ${shop.holidayEve}
 
             </div>
-
 
 
             <div class="weekday-item">
@@ -1694,7 +1577,6 @@
 
 
           </div>
-
 
 
           <div class="shop-details">
@@ -1713,7 +1595,6 @@
             </div>
 
 
-
             <div class="detail-item">
 
               <span class="detail-label">
@@ -1730,7 +1611,6 @@
           </div>
 
 
-
           <a
             class="official-link"
             href="${shop.officialUrl}"
@@ -1740,7 +1620,6 @@
             公式サイトを見る
 
           </a>
-
 
 
           <div class="last-confirmed">
@@ -1758,7 +1637,6 @@
       });
 
     }
-
 
   </script>
 
